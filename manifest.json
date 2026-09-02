@@ -1,0 +1,27 @@
+{
+  "name": "宝妈工作台 · 0-2岁",
+  "short_name": "宝妈工作台",
+  "description": "0-2岁宝宝专用工作台：作息记录、生长曲线、闹钟提醒、相册、里程碑、疫苗计划",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fff5f8",
+  "theme_color": "#fff5f8"
+}
