@@ -173,6 +173,7 @@ body{font-family:-apple-system,"PingFang SC","HarmonyOS Sans SC","Microsoft YaHe
 #gate .gate-btn:active{transform:scale(.97)}
 #gate .gate-err{color:var(--red);font-size:13px;margin-top:10px;min-height:18px}
 #gate .gate-info{margin-top:16px;padding:10px 14px;background:var(--pink-l);border-radius:12px;font-size:12px;color:var(--sub);line-height:1.5}
+#gate .gate-dl{margin-top:14px;font-size:13px;color:var(--pink-d);cursor:pointer;text-decoration:underline;line-height:1.5}
 </style>
 </head>
 <body>
@@ -186,6 +187,7 @@ body{font-family:-apple-system,"PingFang SC","HarmonyOS Sans SC","Microsoft YaHe
     <button class="gate-btn" onclick="checkGate()">激 活</button>
     <div class="gate-err" id="gateErr"></div>
     <div class="gate-info">激活码由发放人提供，激活后绑定本机，无需重复输入。</div>
+    <div class="gate-dl" onclick="downloadApk()">📦 安卓用户？点此下载安装版（APK）</div>
   </div>
 </div>
 <div class="bg-layer" id="bgLayer"></div>
@@ -974,6 +976,21 @@ function gateVerify(code){
   if(isNaN(check)||body.length<4){return false;}
   var expected=gateHash(body)%10000;
   return expected===check;
+}
+var APK_URL='https://raw.githubusercontent.com/gongkai-web/mom-workbench/main/%E5%AE%9D%E5%A6%88%E5%B7%A5%E4%BD%9C%E5%8F%B0.apk';
+function downloadApk(){
+  var isAndroid=/Android/i.test(navigator.userAgent);
+  if(isAndroid){
+    toast('正在下载安卓版，请留意浏览器下载通知…');
+    var a=document.createElement('a');
+    a.href=APK_URL;
+    a.download='宝妈工作台.apk';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }else{
+    window.open(APK_URL,'_blank');
+  }
 }
 function checkGate(){
   var code=$('gateInput').value.trim().toUpperCase();
