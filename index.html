@@ -977,7 +977,7 @@ function gateVerify(code){
   var expected=gateHash(body)%10000;
   return expected===check;
 }
-var APK_URL='https://raw.githubusercontent.com/gongkai-web/mom-workbench/main/%E5%AE%9D%E5%A6%88%E5%B7%A5%E4%BD%9C%E5%8F%B0.apk';
+var APK_URL='https://gongkai-web.github.io/mom-workbench/%E5%AE%9D%E5%A6%88%E5%B7%A5%E4%BD%9C%E5%8F%B0.apk';
 function downloadApk(){
   var isAndroid=/Android/i.test(navigator.userAgent);
   if(isAndroid){
